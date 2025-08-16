@@ -6,4 +6,7 @@ Requires-Dist: pandas
 Requires-Dist: numpy
 Requires-Dist: pymongo
 Requires-Dist: scikit-learn
+Requires-Dist: pyaml
+Requires-Dist: dill
+Requires-Dist: mlflow
 Dynamic: requires-dist

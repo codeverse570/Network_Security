@@ -1,0 +1,5 @@
+2025-08-14 12:47:45,880:INFO:Reading Data from Database
+2025-08-14 12:47:55,023:INFO:Data Reading completed successfully!
+2025-08-14 12:47:55,023:INFO:spliting in train and test data
+2025-08-14 12:47:55,097:INFO:data validation started..
+2025-08-14 12:47:55,164:INFO:Number of columns in dataframe 32

@@ -1,0 +1,10 @@
+artifact_location: file:///D:/LearnMl/Network_Security_Project/mlruns/0/models/m-63075b138c70423ca963d6d528a1310c/artifacts
+creation_timestamp: 1755325471281
+experiment_id: '0'
+last_updated_timestamp: 1755325475128
+model_id: m-63075b138c70423ca963d6d528a1310c
+model_type: null
+name: model
+source_run_id: 0c4fa0b1284a46de84d8e1c4186db786
+status: 2
+status_message: null
