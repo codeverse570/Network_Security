@@ -34,9 +34,11 @@ class DataTransformation:
              y_test= test_df[TARGET_COLUMN].replace(-1,0)
              x_train= train_df.drop(TARGET_COLUMN,axis=1)
              x_test= test_df.drop(TARGET_COLUMN,axis=1)
+             print(x_train.columns)
              transformer=self.transformation_pipeline()
              transformed_x_train= transformer.fit_transform(x_train)
              transformed_x_test= transformer.transform(x_test)
+             save_object('final_model/processor.pkl',transformer)
              train_array= np.c_[transformed_x_train,np.array(y_train)]
              test_array=np.c_[transformed_x_test,np.array(y_test)]
              save_array_file(self.dataTransformationConfig.transformed_train_file_path,train_array)

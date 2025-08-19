@@ -4,6 +4,7 @@ from Network_security.entity.artifact_config import DataTransformationArtifact,C
 from Network_security.entity.config_entity import ModelTrainerConfig
 from Network_security.utils.main_utils.utils import load_array_file,evalute_models,load_object,save_object
 from Network_security.exceptions import custom_exception
+import mlflow 
 from sklearn.linear_model import LogisticRegression
 import os
 from sklearn.metrics import r2_score
@@ -20,7 +21,15 @@ class ModelTrainer:
         self.dataTransfromationArtifact= dataTransformationArtifact
         self.modelTrainerConfig=modelTrainerConfig
         pass
-    def 
+    def track_ml_flow(self,best_model,classificationMetric:ClassificationMetricArtifact):
+           with mlflow.start_run():
+                f1_score= classificationMetric.f1_score
+                recall= classificationMetric.recall_score
+                precision= classificationMetric.precision_score
+                mlflow.log_metric('f1_score',f1_score)
+                mlflow.log_metric('recall_score',recall)
+                mlflow.log_metric('precision_score',precision)
+                mlflow.sklearn.log_model(best_model,'model')
     def train_model(self,x_train,y_train,x_test,y_test):
          
          models = {
@@ -64,11 +73,14 @@ class ModelTrainer:
          y_pred_train=best_model.predict(x_train)
          y_pred_test=best_model.predict(x_test)
          classificationMetricTest= classification_metric(y_test,y_pred_test)
+         self.track_ml_flow(best_model,classificationMetric=classificationMetricTest)
          classificationMetricTrain= classification_metric(y_train,y_pred_train)
+         self.track_ml_flow(best_model=best_model,classificationMetric=classificationMetricTrain)
          preprocessor=  load_object(self.dataTransfromationArtifact.transformed_object_file_path)
          bestModel= NetworkModel(preprocessor,best_model)
          os.makedirs(os.path.dirname(self.modelTrainerConfig.trained_model_file_path),exist_ok=True)
          save_object(self.modelTrainerConfig.trained_model_file_path,bestModel)
+         save_object("final_model/model.pkl",best_model)
          return ModelTrainerArtifact(trained_model_file_path=self.modelTrainerConfig.trained_model_file_path,test_metric_artifact=classificationMetricTest,train_metric_artifact=classificationMetricTrain)
 
          

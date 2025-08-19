@@ -19,6 +19,8 @@ Network_security/exceptions/custom_exception.py
 Network_security/logging/__init__.py
 Network_security/logging/logger.py
 Network_security/pipeline/__init__.py
+Network_security/pipeline/predication_pipeline.py
+Network_security/pipeline/training_pipeline.py
 Network_security/utils/__init__.py
 Network_security/utils/main_utils/__init__.py
 Network_security/utils/main_utils/utils.py

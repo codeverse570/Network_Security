@@ -1,0 +1,9 @@
+2025-08-19 12:43:24,216:INFO:Reading Data from Database
+2025-08-19 12:43:28,192:INFO:Data Reading completed successfully!
+2025-08-19 12:43:28,192:INFO:spliting in train and test data
+2025-08-19 12:43:28,272:INFO:data validation started..
+2025-08-19 12:43:28,335:INFO:Number of columns in dataframe 32
+2025-08-19 12:43:28,335:INFO:Number of columns in schema 2
+2025-08-19 12:43:28,335:INFO:Number of columns in dataframe 32
+2025-08-19 12:43:28,335:INFO:Number of columns in schema 2
+2025-08-19 12:43:28,491:INFO:Data Transformation Started!

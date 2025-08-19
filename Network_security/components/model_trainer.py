@@ -80,6 +80,7 @@ class ModelTrainer:
          bestModel= NetworkModel(preprocessor,best_model)
          os.makedirs(os.path.dirname(self.modelTrainerConfig.trained_model_file_path),exist_ok=True)
          save_object(self.modelTrainerConfig.trained_model_file_path,bestModel)
+         save_object("final_model/model.pkl",best_model)
          return ModelTrainerArtifact(trained_model_file_path=self.modelTrainerConfig.trained_model_file_path,test_metric_artifact=classificationMetricTest,train_metric_artifact=classificationMetricTrain)
 
          

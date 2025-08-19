@@ -8,5 +8,8 @@ Requires-Dist: pymongo
 Requires-Dist: scikit-learn
 Requires-Dist: pyaml
 Requires-Dist: dill
+Requires-Dist: jinja2
+Requires-Dist: fastapi
 Requires-Dist: mlflow
+Requires-Dist: python-multipart
 Dynamic: requires-dist

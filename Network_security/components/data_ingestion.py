@@ -37,9 +37,9 @@ class DataIngestion:
                 train_data, test_data= train_test_split(df,test_size=self.train_test_split_ratio,random_state=42)
                 os.makedirs(os.path.dirname(self.training_file_path),exist_ok=True)
                 os.makedirs(os.path.dirname(self.testing_file_path),exist_ok=True)
-                train_data.to_csv(self.training_file_path)
-
-                test_data.to_csv(self.testing_file_path)
+                train_data.reset_index(drop=True).to_csv(self.training_file_path)
+                test_data.reset_index(drop=True).to_csv(self.testing_file_path)
+            
                 return ArtificatConfig(self.training_file_path,self.testing_file_path)
                 pass
           except Exception as e:

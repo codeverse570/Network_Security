@@ -5,4 +5,7 @@ pymongo
 scikit-learn
 pyaml
 dill
+jinja2
+fastapi
 mlflow
+python-multipart
